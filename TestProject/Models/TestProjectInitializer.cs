@@ -25,7 +25,7 @@ namespace TestProject.Models
         {
             base.Seed(context);
             // JEMO : not sure how to interpret this line, but i think this overrides/sets the DBContext which the overridden Seed method uses to create the database seed data.
-            // JEMO_QUESTION : ask Mediablue developers how to interpret base.Seed(context)
+            // JEMO_QUESTION : ask StackOverflow how to interpret base.Seed(context)
 
 
             // JEMO : preset the images url for easy usage
