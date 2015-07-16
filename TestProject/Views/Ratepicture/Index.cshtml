@@ -1,0 +1,13 @@
+﻿@model TestProject.ViewModels.PictureratingViewModel
+
+@{
+    // JEMO : declare View information
+    ViewBag.Title = "Rate the pictures!";
+    ViewBag.ViewName = "Index";
+    ViewBag.ViewEnvironment = "RatePicture";
+}
+
+
+@Html.Partial("_PicturerateFormPartial", Model.Picture)
+
+

@@ -1,0 +1,20 @@
+﻿@{
+    // JEMO : declare View information
+    ViewBag.Title = "Home Page";
+    ViewBag.ViewName = "Index";
+    ViewBag.ViewEnvironment = "Home";
+}
+
+<div class="jumbotron">
+    <h1>Rate the pictures</h1>
+    <p class="lead">This is a test made by Jeroen Moerman for Mediablue</p>
+</div>
+
+
+<div class="row">
+    <div style="width: 100%">
+        <h2 style="text-align: center;">Start rating the pictures!</h2>
+        <button class="btn btn-primary center-horizontal" onclick="location.href='@Url.Action(null, "Ratepicture")'"> Rate Pictures &raquo; </button>
+    </div>
+</div>
+

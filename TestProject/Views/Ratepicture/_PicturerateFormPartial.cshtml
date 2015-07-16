@@ -1,0 +1,47 @@
+﻿@model TestProject.Models.Picture
+
+
+@using (Ajax.BeginForm("RatePicture", "RatePicture", new AjaxOptions
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "frmPostbackRating",
+        OnComplete = "setupRatePictureForm"
+    }, new { id = "frmPostbackRating" }))
+{
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="pictureID" value="@Model.ID" />
+
+
+    <div class="row">
+        <div class="col-md-6 col-centered" style="text-align: center;">
+            <h1>Rate picture @Model.ID/10</h1>
+        </div>
+    </div>
+
+
+    <img id="imgTestimage" class="center-horizontal" src="@Url.Content(Model.Url)" />
+
+
+    <div style="margin-top: 20px;">
+        <div class="row">
+            <div class="col-md-6 col-centered">
+                <input type="range" id="rngPictureRating" name="PictureRating" oninput='$("#lblPictureRate").text($(this).val());' class="center-horizontal" min="1" max="10" value="1" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-centered" style="text-align: center;">
+                <h2 id="lblPictureRate">1</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-centered">
+                    <input type="submit" class="btn btn-success center-horizontal" value="Rate" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+

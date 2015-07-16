@@ -1,0 +1,43 @@
+﻿@model IEnumerable<TestProject.Models.Picturerating>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div style="margin: 15px;">
+    <a type="button" class="btn btn-primary" href="@Url.Action("Index", "RatePicture")"><h4>Rate the pictures again</h4></a>
+</div>
+
+<div class="jumbotron">
+    <div class="table-responsive">
+        <table class="table table-striped" style="width: 100%;">
+            <tr>
+                <th style="text-align: center;">
+                    @Html.DisplayNameFor(model => model.Picture.Name)
+                </th>
+                <th style="text-align: center;">
+                    @Html.DisplayNameFor(model => model.Rating)
+                </th>
+            </tr>
+
+
+            @{string rowheight = "300px";}
+            @{string fontSize = (300 / 2).ToString() + "px"; }
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="width: 50%; height: @rowheight;  vertical-align: middle;">
+                        <img id="imgTestimage" class="center-horizontal" src="@Url.Content(item.Picture.Url)" style="max-height: @rowheight; max-width: @rowheight;" />
+                    </td>
+                    <td style="width: 50%; height: @rowheight; vertical-align: middle; text-align: center;">
+                        <label style="font-size: @fontSize;">@item.Rating</label>
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+
+        <a style="margin-top: 50px; width: 50%;" type="button" class="btn btn-success center-horizontal" href="@Url.Action("Index", "RatePicture")"><h3>Rate the pictures again</h3></a>
+    </div>
+</div>
